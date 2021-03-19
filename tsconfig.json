@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+		"lib": [
+			"esnext"
+		],
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"forceConsistentCasingInFileNames": true,
+		"strict": true,
+		"noImplicitReturns": true,
+		"allowSyntheticDefaultImports": true,
+		"declaration": true,
+		"sourceMap": true,
+		"noUnusedLocals": true,
+		"resolveJsonModule": false,
+		"esModuleInterop": true,
+		"composite": true,
+		"rootDir": "src",
+		"outDir": "build",
+		"baseUrl": "src",
+		"preserveConstEnums": true,
+		"skipLibCheck": true,
+		"suppressImplicitAnyIndexErrors": true
+	},
+}

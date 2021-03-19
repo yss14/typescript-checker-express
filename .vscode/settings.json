@@ -1,0 +1,27 @@
+{
+	"editor.insertSpaces": false,
+	"editor.tabSize": 4,
+	"editor.detectIndentation": false,
+	"editor.formatOnSave": true,
+	"editor.rulers": [
+		120
+	],
+	"search.exclude": {
+		"**/bower_components": true,
+		"**/build": true,
+		"**/dist*": true,
+		"**/node_modules": true,
+		"**.tsbuildinfo": true,
+	},
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"javascript.preferences.importModuleSpecifier": "relative",
+	"typescript.preferences.importModuleSpecifier": "relative",
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"search.useIgnoreFiles": false
+}
