@@ -1,7 +1,17 @@
 import Express from "express"
 import * as BodyParser from "body-parser"
 import Morgan from "morgan"
-import { Checker, isCheckError, Keys, TypeNumber, TypeString } from "typescript-checker"
+import {
+	Checker,
+	isCheckError,
+	Keys,
+	Or,
+	TypeBoolean,
+	TypeNumber,
+	TypeParseInt,
+	TypeString,
+	TypeUndefined,
+} from "typescript-checker"
 
 const expressApp = Express()
 
@@ -127,6 +137,7 @@ type Context = void
 
 const router = Router<Context>()
 
+// simply check request body
 router.post(
 	"/user",
 	CheckRequestConvert(
@@ -141,5 +152,32 @@ router.post(
 
 			res.status(201).json({ id: 42, name, age })
 		}),
+	),
+)
+
+// more advanced check
+router.put(
+	"/user/:userID/images/:imageID",
+	CheckRequestConvert(
+		Keys({
+			params: Keys({
+				userID: TypeParseInt,
+				imageID: TypeParseInt,
+			}),
+			query: Keys({
+				force: Or(TypeUndefined, TypeBoolean),
+			}),
+			body: Keys({
+				name: TypeString,
+				age: TypeNumber,
+			}),
+		}),
+		ErrorHandlerChecked(
+			async (ctx, { body: { name, age }, params: { userID, imageID }, query: { force } }, res) => {
+				// replace user image; do something with <forcr> query paramd
+
+				res.status(204).end()
+			},
+		),
 	),
 )
